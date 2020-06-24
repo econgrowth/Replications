@@ -1,0 +1,72 @@
+
+  ___  ____  ____  ____  ____ (R)
+ /__    /   ____/   /   ____/
+___/   /   /___/   /   /___/   14.0   Copyright 1985-2015 StataCorp LP
+  Statistics/Data Analysis            StataCorp
+                                      4905 Lakeway Drive
+     MP - Parallel Edition            College Station, Texas 77845 USA
+                                      800-STATA-PC        http://www.stata.com
+                                      979-696-4600        stata@stata.com
+                                      979-696-4601 (fax)
+
+Single-user 8-core Stata perpetual license:
+       Serial number:  10699393
+         Licensed to:  Juan Esteban Rincón
+                       
+
+Notes:
+      1.  Stata is running in batch mode.
+      2.  Unicode is supported; see help unicode_advice.
+      3.  More than 2 billion observations are allowed; see help obs_advice.
+      4.  Maximum number of variables is set to 5000; see help set_maxvar.
+
+. do /Users/juanestebanrincon/.ipython/stata/code.do 
+
+. clear
+
+. set more off
+
+. set linesize 200
+
+. use "/Users/juanestebanrincon/.ipython/stata/data_input.dta", clear 
+
+. log using "/Users/juanestebanrincon/.ipython/stata/log_output.log", text replace
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  /Users/juanestebanrincon/.ipython/stata/log_output.log
+  log type:  text
+ opened on:  24 Jun 2020, 15:18:36
+
+. tsset id year
+       panel variable:  id (strongly balanced)
+        time variable:  year, 1849 to 1939, but with gaps
+                delta:  1 unit
+
+. reg industry fpresence if year==1849 & imputed==0 & westelbe==1, cluster(state)
+
+Linear regression                               Number of obs     =         23
+                                                F(1, 2)           =       0.03
+                                                Prob > F          =     0.8758
+                                                R-squared         =     0.0019
+                                                Root MSE          =      11.39
+
+                                  (Std. Err. adjusted for 3 clusters in state)
+------------------------------------------------------------------------------
+             |               Robust
+    industry |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+   fpresence |   .0605442   .3420454     0.18   0.876    -1.411158    1.532247
+       _cons |   29.51224   6.640936     4.44   0.047     .9386047    58.08589
+------------------------------------------------------------------------------
+
+. 
+. log close
+      name:  <unnamed>
+       log:  /Users/juanestebanrincon/.ipython/stata/log_output.log
+  log type:  text
+ closed on:  24 Jun 2020, 15:18:36
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+. 
+. 
+end of do-file
