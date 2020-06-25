@@ -1,0 +1,32 @@
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{tabular}{@{\extracolsep{2pt}}l*{4}{c}@{}}
+\hline\hline
+& \multicolumn{2}{c}{West of the Elbe} & \multicolumn{2}{c}{All} \\
+\cline{2-3}
+\cline{4-5}
+ & Weighted & Unweighted & Weighted & Unweighted \\
+\hline
+fpresence1750 & -0.491\sym{*} & -0.252 & -0.488\sym{*} & -0.197 \\
+ & (0.267) & (0.185) & (0.254) & (0.177) \\
+fpresence1800 & -0.247 & -0.043 & -0.268 & -0.047 \\
+ & (0.242) & (0.165) & (0.246) & (0.193) \\
+fpresence1850 & -0.160 & 0.033 & -0.221 & -0.023 \\
+ & (0.269) & (0.165) & (0.270) & (0.196) \\
+fpresence1875 & 0.402 & 0.354 & 0.266 & 0.252 \\
+ & (0.350) & (0.317) & (0.328) & (0.324) \\
+fpresence1900 & 0.634 & 0.529 & 0.503 & 0.506 \\
+ & (0.438) & (0.432) & (0.407) & (0.458) \\
+Constant & 17.726 & 16.704 & 18.728 & 17.424 \\
+ & (1.332) & (0.859) & (0.896) & (0.677) \\
+
+\hline
+Obs & 74 & 74 & 109 & 109 \\
+R\sym{2} & 0.376 & 0.100 & 0.226 & 0.070 \\
+F-stat & 34.165 & 1.127 & 36.350 & 1.209 \\
+\hline\hline
+\multicolumn{5}{l}{\footnotesize Weighted by total population in 1750.} \\
+\multicolumn{5}{l}{\footnotesize *$p < 0.1$ , ** $p < 0.05$ , *** $p < 0.01$} \\
+\multicolumn{5}{l}{\footnotesize Standar errors in parentheses.} \\
+\end{tabular}
+}

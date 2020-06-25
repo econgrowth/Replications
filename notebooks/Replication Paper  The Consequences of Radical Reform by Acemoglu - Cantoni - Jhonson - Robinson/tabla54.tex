@@ -1,0 +1,23 @@
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{tabular}{@{\extracolsep{2pt}}l*{6}{c}@{}}
+\hline\hline
+& \multicolumn{2}{c}{West of the Elbe} & \multicolumn{2}{c}{All} \\
+\cline{2-3-4}
+\cline{5-6}
+ & Weighted & Unweighted & Weighted & Weighted & Unweighted & Weighted \\
+\hline
+fpresence & -0.554\sym{*} & -0.585\sym{*} & -0.724\sym{**} & 0.350 & 0.321 & 0.570\sym{*} \\
+ & (0.329) & (0.340) & (0.329) & (0.303) & (0.295) & (0.295) \\
+Constant & 40.915\sym{***} & 43.121\sym{***} & 43.510\sym{***} & 38.892\sym{***} & 37.025\sym{***} & 35.542\sym{***} \\
+ & (2.802) & (2.749) & (2.231) & (2.577) & (2.390) & (2.000) \\
+
+\hline
+Obs & 44 & 44 & 62 & 44 & 44 & 62 \\
+R\sym{2} & 0.063 & 0.066 & 0.075 & 0.031 & 0.027 & 0.058 \\
+F-stat & 2.837 & 2.965 & 4.832 & 1.340 & 1.179 & 3.724 \\
+\hline\hline
+\multicolumn{7}{l}{\footnotesize *$p < 0.1$ , ** $p < 0.05$ , *** $p < 0.01$} \\
+\multicolumn{7}{l}{\footnotesize Standar errors in parentheses.} \\
+\end{tabular}
+}
