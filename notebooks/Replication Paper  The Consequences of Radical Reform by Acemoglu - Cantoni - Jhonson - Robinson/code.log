@@ -1,0 +1,191 @@
+
+  ___  ____  ____  ____  ____ (R)
+ /__    /   ____/   /   ____/
+___/   /   /___/   /   /___/   14.0   Copyright 1985-2015 StataCorp LP
+  Statistics/Data Analysis            StataCorp
+                                      4905 Lakeway Drive
+     MP - Parallel Edition            College Station, Texas 77845 USA
+                                      800-STATA-PC        http://www.stata.com
+                                      979-696-4600        stata@stata.com
+                                      979-696-4601 (fax)
+
+Single-user 8-core Stata perpetual license:
+       Serial number:  10699393
+         Licensed to:  Juan Esteban Rincón
+                       
+
+Notes:
+      1.  Stata is running in batch mode.
+      2.  Unicode is supported; see help unicode_advice.
+      3.  More than 2 billion observations are allowed; see help obs_advice.
+      4.  Maximum number of variables is set to 5000; see help set_maxvar.
+
+. do /Users/juanestebanrincon/.ipython/stata/code.do 
+
+. clear
+
+. set more off
+
+. set linesize 200
+
+. use "/Users/juanestebanrincon/.ipython/stata/data_input.dta", clear 
+
+. log using "/Users/juanestebanrincon/.ipython/stata/log_output.log", text replace
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  /Users/juanestebanrincon/.ipython/stata/log_output.log
+  log type:  text
+ opened on:  25 Jun 2020, 10:42:59
+
+. iis id
+
+. xtivreg2 urbrate (yearsref= fpresenceXpostXtrend) yr1750-yr1900, fe robust cluster(id) first
+
+FIXED EFFECTS ESTIMATION
+------------------------
+Number of groups =        19                    Obs per group: min =         5
+                                                               avg =       8.9
+                                                               max =        11
+
+First-stage regressions
+-----------------------
+
+
+FIXED EFFECTS ESTIMATION
+------------------------
+Number of groups =        19                    Obs per group: min =         5
+                                                               avg =       8.9
+                                                               max =        11
+
+First-stage regression of yearsref:
+
+Statistics robust to heteroskedasticity and clustering on id
+Number of obs =                    169
+Number of clusters (id) =           19
+--------------------------------------------------------------------------------------
+                     |               Robust
+            yearsref |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
+---------------------+----------------------------------------------------------------
+fpresenceXpostXtrend |   1.770891   .1991116     8.89   0.000     1.377332     2.16445
+              yr1750 |  -35.28553   4.755754    -7.42   0.000    -44.68564   -25.88543
+              yr1800 |  -34.87764   4.618591    -7.55   0.000    -44.00663   -25.74864
+              yr1850 |  -23.15956   3.456263    -6.70   0.000    -29.99112     -16.328
+              yr1875 |  -5.693417   3.142845    -1.81   0.072    -11.90549    .5186513
+              yr1900 |   14.20693   2.886905     4.92   0.000      8.50075    19.91312
+--------------------------------------------------------------------------------------
+F test of excluded instruments:
+  F(  1,    18) =    79.10
+  Prob > F      =   0.0000
+Sanderson-Windmeijer multivariate F test of excluded instruments:
+  F(  1,    18) =    79.10
+  Prob > F      =   0.0000
+
+
+
+Summary results for first-stage regressions
+-------------------------------------------
+
+                                           (Underid)            (Weak id)
+Variable     | F(  1,    18)  P-val | SW Chi-sq(  1) P-val | SW F(  1,    18)
+yearsref     |      79.10    0.0000 |       86.06   0.0000 |       79.10
+
+NB: first-stage test statistics cluster-robust
+
+Stock-Yogo weak ID F test critical values for single endogenous regressor:
+                                   10% maximal IV size             16.38
+                                   15% maximal IV size              8.96
+                                   20% maximal IV size              6.66
+                                   25% maximal IV size              5.53
+Source: Stock-Yogo (2005).  Reproduced by permission.
+NB: Critical values are for i.i.d. errors only.
+
+Underidentification test
+Ho: matrix of reduced form coefficients has rank=K1-1 (underidentified)
+Ha: matrix has rank=K1 (identified)
+Kleibergen-Paap rk LM statistic          Chi-sq(1)=3.03     P-val=0.0817
+
+Weak identification test
+Ho: equation is weakly identified
+Cragg-Donald Wald F statistic                                      63.56
+Kleibergen-Paap Wald rk F statistic                                79.10
+
+Stock-Yogo weak ID test critical values for K1=1 and L1=1:
+                                   10% maximal IV size             16.38
+                                   15% maximal IV size              8.96
+                                   20% maximal IV size              6.66
+                                   25% maximal IV size              5.53
+Source: Stock-Yogo (2005).  Reproduced by permission.
+NB: Critical values are for Cragg-Donald F statistic and i.i.d. errors.
+
+Weak-instrument-robust inference
+Tests of joint significance of endogenous regressors B1 in main equation
+Ho: B1=0 and orthogonality conditions are valid
+Anderson-Rubin Wald test           F(1,18)=       20.20     P-val=0.0003
+Anderson-Rubin Wald test           Chi-sq(1)=     21.97     P-val=0.0000
+Stock-Wright LM S statistic        Chi-sq(1)=      5.01     P-val=0.0252
+
+NB: Underidentification, weak identification and weak-identification-robust
+    test statistics cluster-robust
+
+Number of clusters             N_clust  =         19
+Number of observations               N  =        169
+Number of regressors                 K  =          6
+Number of endogenous regressors      K1 =          1
+Number of instruments                L  =          6
+Number of excluded instruments       L1 =          1
+
+IV (2SLS) estimation
+--------------------
+
+Estimates efficient for homoskedasticity only
+Statistics robust to heteroskedasticity and clustering on id
+
+Number of clusters (id) =           19                Number of obs =      169
+                                                      F(  6,    18) =    34.62
+                                                      Prob > F      =   0.0000
+Total (centered) SS     =  29623.35875                Centered R2   =   0.8217
+Total (uncentered) SS   =  29623.35875                Uncentered R2 =   0.8217
+Residual SS             =  5280.864692                Root MSE      =    5.933
+
+------------------------------------------------------------------------------
+             |               Robust
+     urbrate |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+    yearsref |   .3430684   .0835226     4.11   0.000      .179367    .5067698
+      yr1750 |  -4.149327    3.84222    -1.08   0.280    -11.67994    3.381285
+      yr1800 |   -1.58147   3.944827    -0.40   0.688    -9.313188    6.150248
+      yr1850 |  -6.313095   1.868878    -3.38   0.001    -9.976029   -2.650162
+      yr1875 |  -1.366947   1.191377    -1.15   0.251    -3.702004    .9681094
+      yr1900 |   5.408251   2.218391     2.44   0.015     1.060285    9.756217
+------------------------------------------------------------------------------
+Underidentification test (Kleibergen-Paap rk LM statistic):              3.032
+                                                   Chi-sq(1) P-val =    0.0817
+------------------------------------------------------------------------------
+Weak identification test (Cragg-Donald Wald F statistic):               63.562
+                         (Kleibergen-Paap rk Wald F statistic):         79.103
+Stock-Yogo weak ID test critical values: 10% maximal IV size             16.38
+                                         15% maximal IV size              8.96
+                                         20% maximal IV size              6.66
+                                         25% maximal IV size              5.53
+Source: Stock-Yogo (2005).  Reproduced by permission.
+NB: Critical values are for Cragg-Donald F statistic and i.i.d. errors.
+------------------------------------------------------------------------------
+Hansen J statistic (overidentification test of all instruments):         0.000
+                                                 (equation exactly identified)
+------------------------------------------------------------------------------
+Instrumented:         yearsref
+Included instruments: yr1750 yr1800 yr1850 yr1875 yr1900
+Excluded instruments: fpresenceXpostXtrend
+------------------------------------------------------------------------------
+
+. 
+. log close
+      name:  <unnamed>
+       log:  /Users/juanestebanrincon/.ipython/stata/log_output.log
+  log type:  text
+ closed on:  25 Jun 2020, 10:43:00
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+. 
+. 
+end of do-file
